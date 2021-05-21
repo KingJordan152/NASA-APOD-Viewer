@@ -6,7 +6,7 @@ export default function App() {
   const [APIData, setAPIData] = useState({}); // Holds the information acquired from the HTTP request.
   const [requestSucceeded, setRequestSucceeded] = useState(false); // True if request succeeded; False if it failed.
   const url =
-    "https://api.nasa.gov/planetary/apod?api_key=vg6XTR2UYdh7TyS0NnolZeCeJd3mlQdeH6Leb6sW&date=2020-10-04"; // Nasa APOD url with API key.
+    "https://api.nasa.gov/planetary/apod?api_key=vg6XTR2UYdh7TyS0NnolZeCeJd3mlQdeH6Leb6sW"; // Nasa APOD url with API key.
 
   /**
    * Performs an HTTP request to NASA's APOD API using Axios.
