@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
+require("dotenv").config();
 
 export default function App() {
   const [APIData, setAPIData] = useState({}); // Holds the information acquired from the HTTP request.
   const [requestSucceeded, setRequestSucceeded] = useState(false); // True if request succeeded; False if it failed.
-  const url =
-    "https://api.nasa.gov/planetary/apod?api_key=vg6XTR2UYdh7TyS0NnolZeCeJd3mlQdeH6Leb6sW"; // Nasa APOD url with API key.
+  const api_key = process.env.REACT_APP_API_KEY; // Key used to access the APOD API.
+  const url = `https://api.nasa.gov/planetary/apod?api_key=${api_key}`; // Nasa APOD url with API key.
 
   /**
    * Performs an HTTP request to NASA's APOD API using Axios.
@@ -32,7 +33,7 @@ export default function App() {
         setRequestSucceeded(false); // Since there was an error, set this state to false.
         console.log("Request Failed: ", error);
       });
-  }, []);
+  }, [url]);
 
   if (!requestSucceeded) {
     // Content to display if the request failed.
